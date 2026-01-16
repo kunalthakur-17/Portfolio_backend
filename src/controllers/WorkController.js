@@ -53,7 +53,7 @@ try{
         ]
     } : {}
     
-    const works = await Work.find(query).skip(skip).limit(limit)
+    const works = await Work.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit)
     const totalWorks = await Work.countDocuments(query)
     const totalPages = Math.ceil(totalWorks / limit)
     

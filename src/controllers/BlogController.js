@@ -67,7 +67,7 @@ const getAllBlogsController = async (req, res) => {
             ]
         }: {}
 
-        const blogs = await Blog.find(query).skip(skip).limit(limit)
+        const blogs = await Blog.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit)
         const totalBlogs = await Blog.countDocuments(query)
         const totalPages = Math.ceil(totalBlogs/limit)
 
